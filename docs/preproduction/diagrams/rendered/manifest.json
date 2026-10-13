@@ -1,0 +1,89 @@
+{
+  "mermaidVersion": "11.12.0",
+  "diagrams": [
+    {
+      "source": "01-architecture-single-thread.mmd",
+      "sha256": "9b59127daa12a2406030c98d170d714d6c00dc10ea6c3e0ef46d4e10073b10fe",
+      "width": 1050,
+      "height": 757
+    },
+    {
+      "source": "02-architecture-worker.mmd",
+      "sha256": "cc2813125cf5d54cc38f900bbcea9c2625b655881d38ed074bd1117843e47b6b",
+      "width": 1434,
+      "height": 747
+    },
+    {
+      "source": "03-architecture-rapier.mmd",
+      "sha256": "3991e7a52832944994c9db0f403cc56777321898555fca100f61b3e26cb3aa97",
+      "width": 992,
+      "height": 606
+    },
+    {
+      "source": "04-dcd-runtime.mmd",
+      "sha256": "9ab3058c924bf63cb426674e807f6d4f9cbf6e74a07f201db462993655703144",
+      "width": 1454,
+      "height": 850
+    },
+    {
+      "source": "05-dcd-world-pipeline.mmd",
+      "sha256": "bf86688162b580abe517a48602340957c81936e03ede926f5f9c45b292b78e53",
+      "width": 1173,
+      "height": 1049
+    },
+    {
+      "source": "06-sequence-movement.mmd",
+      "sha256": "b004f353d6b5cb3cc45498abf42117dadb2863e134ab1687e26f5ca3daecf620",
+      "width": 1094,
+      "height": 1113
+    },
+    {
+      "source": "07-sequence-boost.mmd",
+      "sha256": "2eaf1a50ba95c544d8112d8eed5f0cd2b08c5ba48f455f1aff142de9da3b2cec",
+      "width": 919,
+      "height": 1100
+    },
+    {
+      "source": "08-sequence-streaming.mmd",
+      "sha256": "f7772dcbebd7fc39cc0024e9e7ef3c0d0e120e4293055af98e1d33cac9625a71",
+      "width": 1088,
+      "height": 1110
+    },
+    {
+      "source": "09-state-run.mmd",
+      "sha256": "8ca819774eb089203c27e7d5bd5da78669b2b0fbfb2dea8b807d4e15efc305d4",
+      "width": 1015,
+      "height": 868
+    },
+    {
+      "source": "10-state-movement.mmd",
+      "sha256": "4ccd46076940e0edb34876103b86da086756b2dae4bbffa5b3012d29ca476d86",
+      "width": 1293,
+      "height": 916
+    },
+    {
+      "source": "11-flow-generation.mmd",
+      "sha256": "1235ac85aa914a8673725703e222ba437235f52e347862c47c1891d6c2e8e506",
+      "width": 1896,
+      "height": 858
+    },
+    {
+      "source": "12-dcd-session-presentation.mmd",
+      "sha256": "785529beb61bf99d3b9354bc4a12eabf0bf1c6c30d820aca62f43f6f911ecbe8",
+      "width": 1314,
+      "height": 901
+    },
+    {
+      "source": "13-dcd-world-data.mmd",
+      "sha256": "08dbbf4c22750939a50844d414e3363f1338dd626c78c6673790599e895df758",
+      "width": 1212,
+      "height": 1200
+    },
+    {
+      "source": "14-flow-voxel-build.mmd",
+      "sha256": "ddf266049ca045af64a145bbe3526337341decc537a030c08144312676464823",
+      "width": 1320,
+      "height": 863
+    }
+  ]
+}

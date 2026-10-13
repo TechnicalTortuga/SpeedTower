@@ -1,0 +1,11 @@
+flowchart TB
+  Session[GameSession] --> Player[PlayerController<br/>Circular path constraint]
+  Session --> Rings[RingSystem<br/>Kinematic ring bodies]
+  Player --> Physics[Rapier 3D world]
+  Rings --> Physics
+  Session --> Streamer[ChunkStreamer]
+  Streamer <--> Worker[GenerationWorker]
+  Streamer --> Physics
+  Physics --> Render[Pose synchronization<br/>RenderSystem and CameraRig]
+  Render --> GPU[Three.js WebGL2]
+  Streamer <--> Store[(RunStateStore)]

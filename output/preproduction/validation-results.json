@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "chapters": 8,
+  "functionalRequirements": 25,
+  "qualityRequirements": 10,
+  "futureTestScenarios": 20,
+  "diagrams": 14,
+  "localLinksChecked": 62,
+  "exportsChecked": true,
+  "errors": []
+}

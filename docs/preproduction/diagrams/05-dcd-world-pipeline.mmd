@@ -1,0 +1,50 @@
+classDiagram
+  direction TB
+  class ChunkStreamer {
+    num activeSectionCount
+    request(key)
+    integrateReady()
+    evict(key)
+  }
+  class RunStateStore {
+    <<interface>>
+    loadSpent()
+    persistSpent()
+    flush()
+    persistSplit()
+    loadSplits()
+    getRecord()
+    saveRecord()
+  }
+  class GenerationWorker {
+    handle(request)
+    transfer(result)
+  }
+  class SectionGenerator {
+    generate(key)
+    boundaryProfile(index)
+    validateCandidate()
+  }
+  class VoxelMesher {
+    cullFaces()
+    greedyMesh()
+  }
+  class ChunkBuildRequest {
+    <<interface>>
+    string runId
+    number requestId
+    Key key
+  }
+  class ChunkBuildResult {
+    <<interface>>
+    string runId
+    number requestId
+    Key key
+    Mesh[] meshes
+  }
+  ChunkStreamer "1" --> "1" RunStateStore : journal
+  ChunkStreamer "1" *-- "1" GenerationWorker : messages
+  GenerationWorker "1" *-- "1" SectionGenerator
+  GenerationWorker "1" *-- "1" VoxelMesher
+  GenerationWorker ..> ChunkBuildRequest : reads
+  GenerationWorker ..> ChunkBuildResult : returns

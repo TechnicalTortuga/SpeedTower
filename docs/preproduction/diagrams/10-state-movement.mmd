@@ -1,0 +1,25 @@
+stateDiagram-v2
+  [*] --> Grounded
+  Grounded --> Airborne: jump, high jump, or leave support
+  Airborne --> Grounded: valid landing
+  Airborne --> WallSliding: descending wall contact
+  WallSliding --> Airborne: wall jump, high jump, or lost contact
+  WallSliding --> Grounded: platform landing
+  Grounded --> Dead: fatal hazard
+  Airborne --> Dead: fatal hazard
+  WallSliding --> Dead: fatal hazard
+  Dead --> [*]
+  note right of Grounded
+    Support ring carries player
+    Input changes relative speed
+  end note
+  note right of Airborne
+    Retain world vx on departure
+    Lower platforms recover falls
+  end note
+  note left of WallSliding
+    Boosts are orthogonal effects
+    Dash changes tangent speed
+    High jump changes upward speed
+    Glide caps descent
+  end note

@@ -1,0 +1,29 @@
+flowchart LR
+  Key[Seed and versions<br/>Streams and boundaries]
+  subgraph Candidate[Candidates 0 through 7]
+    direction TB
+    Route[Build baseline route<br/>Validate movement]
+    Hazards[If baseline passes:<br/>place boosts and hazards<br/>revalidate route]
+    Check{Both pass?}
+    Accept[Accept candidate]
+    Reject[Reject candidate]
+    Route --> Hazards --> Check
+    Check -->|yes| Accept
+    Check -->|no| Reject
+    Reject -->|next candidate| Route
+  end
+  subgraph Fallback[Fallback validation]
+    direction TB
+    Fixed[Stationary safe connector<br/>No hazards or required boosts]
+    Safe{Valid?}
+    Valid[Accept fallback]
+    Error[Build error<br/>Suspend at frontier]
+    Fixed --> Safe
+    Safe -->|yes| Valid
+    Safe -->|no| Error
+  end
+  Ready[Validated section<br/>Voxel build next]
+  Key --> Candidate
+  Candidate -->|accepted| Ready
+  Candidate -->|eight failures| Fallback
+  Fallback -->|accepted| Ready

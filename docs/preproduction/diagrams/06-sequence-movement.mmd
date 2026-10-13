@@ -1,0 +1,23 @@
+sequenceDiagram
+  participant S as GameSession
+  participant I as InputController
+  participant R as RingSystem
+  participant P as PlayerController
+  participant W as CollisionWorld
+  participant V as RenderSystem
+  Note over S,V: Required terrain is ready before this fixed tick
+  S->>I: snapshot input
+  I-->>S: commands
+  S->>R: updatePhase(tick)
+  S->>P: step(input, 1/120)
+  opt Grounded at tick start
+    P->>R: getSupportSpeed()
+    R-->>P: ring tangential speed
+    P->>P: vx = relative speed + ring speed
+  end
+  Note over P,W: On departure retain world vx<br/>Do not add carry again
+  P->>W: relative swept movement
+  W-->>P: motion and contacts
+  P->>P: update support and mode
+  S->>V: interpolate completed states
+  V->>V: ring phase minus player angle

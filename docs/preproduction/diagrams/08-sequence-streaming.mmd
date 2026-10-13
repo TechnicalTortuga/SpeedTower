@@ -1,0 +1,25 @@
+sequenceDiagram
+  participant S as GameSession
+  participant C as ChunkStreamer
+  participant J as RunStateStore
+  participant W as GenerationWorker
+  participant R as RenderSystem
+  participant P as CollisionWorld
+  S->>C: update two-way window
+  par Build section
+    C->>W: ChunkBuildRequest
+    W->>W: generate route and mesh rings
+    W-->>C: transfer ChunkBuildResult
+  and Load spent state
+    C->>J: loadSpent(runId, key)
+    J-->>C: spent entity IDs
+  end
+  C->>C: validate request and combine state
+  Note over S,P: Activate ready data atomically at a tick boundary
+  C->>R: install meshes at current phase
+  C->>P: install collision and entities
+  Note over S,C: Missing terrain suspends<br/>simulation and timing
+  C->>J: persist dirty IDs and flush
+  J-->>C: acknowledged
+  C->>P: remove old section
+  C->>R: dispose old geometry

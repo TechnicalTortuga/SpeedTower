@@ -1,0 +1,23 @@
+flowchart LR
+  Valid[Validated route and hazards]
+  subgraph Build[Worker voxel pipeline]
+    direction TB
+    Voxels[Decorate within route clearances]
+    Split[Partition by rigid ring]
+    Cull[Remove internal faces within each ring]
+    Merge[Greedy merge compatible faces<br/>Same normal, material and AO]
+    Payload[ChunkBuildResult<br/>Specs and transferable buffers]
+    Voxels --> Split --> Cull --> Merge --> Payload
+  end
+  subgraph Integrate[Main-thread integration]
+    direction TB
+    Stage[Stage meshes, collision and spent flags]
+    Ready{All data ready?}
+    Activate[Activate at a tick boundary]
+    Wait[Wait at frontier<br/>Freeze simulation and timing]
+    Stage --> Ready
+    Ready -->|yes| Activate
+    Ready -->|no| Wait
+    Wait --> Stage
+  end
+  Valid --> Build --> Integrate

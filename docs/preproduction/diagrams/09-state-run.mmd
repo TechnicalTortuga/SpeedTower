@@ -1,0 +1,33 @@
+stateDiagram-v2
+  direction LR
+  [*] --> Menu
+  Menu --> Loading: start
+  Loading --> Running: ready
+  Loading --> Suspended: blocked
+  Running --> Paused: pause
+  Running --> Suspended: blocked
+  Paused --> Running: resume
+  Suspended --> Running: ready
+  Running --> GameOver: hazard
+  GameOver --> Loading: restart
+  Paused --> Loading: restart
+  Suspended --> Loading: restart
+  GameOver --> Menu: exit
+  Paused --> Menu: exit
+  Suspended --> Menu: exit
+  note right of Paused
+    Manual resume only when
+    visible and terrain ready
+    Simulation and active timing stop
+    Interruption flag is retained
+  end note
+  note right of Suspended
+    Hidden tab, missing terrain
+    or build/storage failure
+    Resume when visible and ready
+    Simulation, rings, effects
+    and active timing freeze
+    Storage retry preserves flags
+    Restart creates a new runId
+    with an empty attempt journal
+  end note

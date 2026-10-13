@@ -1,0 +1,16 @@
+flowchart TB
+  subgraph Main[Main thread]
+    direction TB
+    Input[InputController] --> Session[GameSession]
+    Session --> Play[PlayerController<br/>RingSystem and CollisionWorld<br/>BoostSystem]
+    Session --> Streamer[ChunkStreamer]
+    Play --> Render[RenderSystem and CameraRig]
+    Streamer --> Render
+    Session --> Metrics[RunTracker and HUD]
+  end
+  subgraph Worker[Module worker]
+    Build[GenerationWorker<br/>SectionGenerator and VoxelMesher]
+  end
+  Streamer <-->|specs and typed-array buffers| Build
+  Streamer <--> Store[(RunStateStore<br/>IndexedDB)]
+  Render --> GPU[Three.js WebGL2]

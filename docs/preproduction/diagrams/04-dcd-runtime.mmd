@@ -1,0 +1,46 @@
+classDiagram
+  direction LR
+  class PlayerController {
+    step(input, dt)
+    applyImpulse()
+  }
+  class PlayerState {
+    <<interface>>
+    number x
+    Height logicalHeight
+    number vx
+    number vy
+    Mode movementMode
+    string supportRingId
+  }
+  class CollisionWorld {
+    sweepRelativeMotion()
+    activateSection()
+    removeSection()
+  }
+  class RingSystem {
+    updatePhase(tick)
+    getSupportSpeed()
+  }
+  class RingSpec {
+    <<interface>>
+    string id
+    number angularSpeed
+  }
+  class BoostSystem {
+    activate(kind, source)
+    updateEffects(tick)
+  }
+  class BoostInventory {
+    BoostDefinition Q
+    BoostDefinition E
+    collect()
+    consume()
+  }
+  PlayerController "1" --> "1" PlayerState : updates
+  PlayerController "1" --> "1" CollisionWorld : sweeps
+  PlayerController "1" --> "1" RingSystem : contacts
+  RingSystem "1" --> "*" RingSpec : evaluates
+  PlayerState "1" --> "0..1" RingSpec : support
+  BoostSystem "1" *-- "1" BoostInventory
+  BoostSystem "1" --> "1" PlayerController : effects

@@ -1,0 +1,47 @@
+classDiagram
+  direction TB
+  class GameSession {
+    RunConfig config
+    string runState
+    start()
+    tick()
+    suspend(reason)
+  }
+  class SimulationClock {
+    number tickIndex
+    advance()
+    pause()
+  }
+  class InputController {
+    snapshot()
+    clearHeld()
+  }
+  class RunTracker {
+    number activeTimeMs
+    boolean interrupted
+    updateMetrics()
+    makeRecord()
+  }
+  class RunRecord {
+    <<interface>>
+    LogicalHeight maxHeight
+    number timeAtMaxHeightMs
+    boolean interrupted
+  }
+  class RenderSystem {
+    render(alpha)
+    disposeSection()
+  }
+  class CameraRig {
+    follow(player)
+  }
+  class HUD {
+    update(viewModel)
+  }
+  GameSession "1" *-- "1" SimulationClock
+  GameSession "1" *-- "1" InputController
+  GameSession "1" *-- "1" RunTracker
+  GameSession "1" *-- "1" RenderSystem
+  RunTracker ..> RunRecord : produces
+  RenderSystem "1" *-- "1" CameraRig
+  RenderSystem "1" --> "1" HUD : view model

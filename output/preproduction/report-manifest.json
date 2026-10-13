@@ -1,0 +1,69 @@
+{
+  "sources": [
+    {
+      "file": "01-game-design.md",
+      "sha256": "5cf15c594c6d2d9546c475a5f5528247123f29962396140562ae7e14904c9121"
+    },
+    {
+      "file": "02-requirements.md",
+      "sha256": "063ff01afda90051e124d05b99ab33ed712884853d62944e884f235ccf8e9bdf"
+    },
+    {
+      "file": "03-architecture.md",
+      "sha256": "a39a6c4402b15e2888c94f04d8465033d0cb519e09d0b9db40c5040ce38374f1"
+    },
+    {
+      "file": "04-world-generation.md",
+      "sha256": "51b177e02d9ce5251552034b30406da023b43cacc6e5bed6ad1bc6575ed78859"
+    },
+    {
+      "file": "05-environments-and-boosts.md",
+      "sha256": "6bfbbcdd058018dc90f3959c2581fd852a4eae3e73cd1793113e605e5b664d7c"
+    },
+    {
+      "file": "06-diagrams.md",
+      "sha256": "6cbedfccd6cf30f25164b4da5996320fd8126fa25ad3bb045ee02da10e30809e"
+    },
+    {
+      "file": "07-roadmap-and-validation.md",
+      "sha256": "e1a3cdc8b27b790e4e9032307fbf7b6ecd185a52a5f06e31147b11bdacd1f02d"
+    },
+    {
+      "file": "08-sources-and-decisions.md",
+      "sha256": "086e2528f299541d36f8e61198e76a9460f309d6fd5b64d838453c9c3893ac62"
+    }
+  ],
+  "figures": [
+    "01-architecture-single-thread.png",
+    "02-architecture-worker.png",
+    "03-architecture-rapier.png",
+    "04-dcd-runtime.png",
+    "12-dcd-session-presentation.png",
+    "05-dcd-world-pipeline.png",
+    "13-dcd-world-data.png",
+    "06-sequence-movement.png",
+    "07-sequence-boost.png",
+    "08-sequence-streaming.png",
+    "09-state-run.png",
+    "10-state-movement.png",
+    "11-flow-generation.png",
+    "14-flow-voxel-build.png"
+  ],
+  "figureHashes": {
+    "01-architecture-single-thread.png": "695ed3360d9db1d603730fae15cd0addd4aaee8a66cafd9f50465f9d149dd2b5",
+    "02-architecture-worker.png": "832835cdad70c542f6af6752ba788d2dc0f605c18c88cddbc6bd28f9c8f7d159",
+    "03-architecture-rapier.png": "8f44cbf2658e55cc45466072cd785114a7d2777387f615913f683f0a08ea1fc7",
+    "04-dcd-runtime.png": "ca072a1334110f88c65eabf8c03f12823ce7d82b7fa580995d826c66686e8e19",
+    "12-dcd-session-presentation.png": "b54bd2b2a19c82800ea4d7347875a69c4dff35a344e51f79cd9bf7cb2a4b2228",
+    "05-dcd-world-pipeline.png": "b5fedbc0211b833e8901bb60b52a2cbf53e35637432f4340cdbb79186285acc0",
+    "13-dcd-world-data.png": "ef2395551ad0e8b7751977a9d2a9e700e3da7da8ab472a973ae9e1b54430b112",
+    "06-sequence-movement.png": "7b275194b7b7b3e896c8142e5e79fa373174ccce5f7401c75aa5ec00d406b425",
+    "07-sequence-boost.png": "0f8ad9a4884117479646321b907449ab6f4b1b5f7549261886e66cbe7658daf7",
+    "08-sequence-streaming.png": "6a8bca9f6626d5e2568335f7772c93d02524f5a587ec5f0bf2456b27075bf554",
+    "09-state-run.png": "89cd84469ed3c91f8dd019ded51faaef1516bb71c8cd804901ca1c184f104b78",
+    "10-state-movement.png": "106c1e119f3f0b472ad47befe08837f36ed5e6bbd80f9e6d2ab1abbbd3418ecd",
+    "11-flow-generation.png": "71972e396c4d6db5dcf4078e772988d1c173e27ff38ad2c997194b0f7cc60357",
+    "14-flow-voxel-build.png": "461688c99a2f2e8a9dba417f936f7ede9f5f97615516980daf5132bf31e1657e"
+  },
+  "docx": "SpeedTower-Preproduction-Specification.docx"
+}

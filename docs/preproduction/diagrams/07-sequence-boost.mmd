@@ -1,0 +1,26 @@
+sequenceDiagram
+  participant S as GameSession
+  participant B as BoostSystem
+  participant N as BoostInventory
+  participant P as PlayerController
+  participant J as RunStateStore
+  S->>B: Q then E press requests
+  B->>N: read requested slot
+  N-->>B: effect definition
+  alt Activation is valid
+    B->>P: apply effect
+    B->>N: consume item
+  else Empty or invalid
+    B-->>S: retain slot contents
+  end
+  Note over S,J: World triggers follow movement contacts
+  S->>N: pickup overlap, fill Q then E
+  N-->>S: collected or full
+  opt Pickup collected
+    S->>S: mark spent and remove resident pickup
+    S->>J: queue journal write
+  end
+  Note over N,J: Full slots leave the pickup available
+  S->>B: armed pad entry
+  B->>P: apply if valid, next tick
+  Note over S,P: Any attempt latches until exit<br/>Success also starts 0.5 s cooldown

@@ -1,0 +1,57 @@
+classDiagram
+  direction LR
+  class SectionTemplate {
+    <<interface>>
+    string id
+    Sockets routeSockets
+    num maxAngularSpeed
+    num headroom
+  }
+  class BoundaryProfile {
+    <<interface>>
+    num boundaryIndex
+    num headroom
+  }
+  class RingSpec {
+    <<interface>>
+    string id
+    number localHeight
+    number phase0
+    number angularSpeed
+  }
+  class PlatformSpec {
+    <<interface>>
+    string id
+    string ringId
+    Ranges angleIntervals
+    number bottom
+    number top
+  }
+  class WorldEntitySpec {
+    <<interface>>
+    string id
+    string kind
+    string platformId
+    string boostId
+    string hazardKind
+  }
+  class BoostDefinition {
+    <<interface>>
+    BoostKind kind
+    number duration
+    number strength
+  }
+  class RingMeshBuffers {
+    <<interface>>
+    string ringId
+    Float32Array positions
+    Uint32Array indices
+  }
+  BoundaryProfile "1" --> "1" RingSpec
+  BoundaryProfile "1" --> "1" PlatformSpec
+  PlatformSpec "*" --> "1" RingSpec : belongs to
+  WorldEntitySpec "*" --> "1" PlatformSpec : references
+  WorldEntitySpec "*" --> "0..1" BoostDefinition : optional boost
+  RingMeshBuffers "*" --> "1" RingSpec : owned by
+  SectionTemplate ..> RingSpec : constrains speed
+  SectionTemplate ..> PlatformSpec : constrains route

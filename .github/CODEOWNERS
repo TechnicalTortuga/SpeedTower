@@ -1,0 +1,22 @@
+# Reviewer routing; enforcement requires branch rules separately.
+# Source folder responsibilities are documented in docs/collaboration/OWNERSHIP.md.
+/src/rendering/ @r0xly
+/src/meshing/ @r0xly
+/src/player/ @TechnicalTortuga
+/src/boosts/ @TechnicalTortuga
+/src/lighting/ @TechnicalTortuga
+/src/run/ @TechnicalTortuga
+
+/src/world/ @atalvarez77
+/src/streaming/ @atalvarez77
+# Shared integration requires relevant owners in the PR's review request.
+/src/shared/ @TechnicalTortuga @r0xly @atalvarez77
+/src/workers/ @r0xly @atalvarez77
+/src/ui/ @TechnicalTortuga @r0xly @atalvarez77
+/src/main.ts @TechnicalTortuga @r0xly @atalvarez77
+/src/style.css @TechnicalTortuga @r0xly @atalvarez77
+/package.json @TechnicalTortuga
+/package-lock.json @TechnicalTortuga
+/.npmrc @TechnicalTortuga
+/AGENTS.md @TechnicalTortuga
+/.github/ @TechnicalTortuga
