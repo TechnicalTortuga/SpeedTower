@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { 
   parseAsciiTemplate, 
-  TEMPLATE_REGISTRY, 
   getTemplatesByCategory 
 } from '../templates';
 import { BlockType } from '../block_types';

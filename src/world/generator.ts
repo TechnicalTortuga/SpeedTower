@@ -1,7 +1,7 @@
 import { BlockType, WORLD_CONSTANTS } from './block_types';
 import { VoxelChunk } from './chunk';
 import { PRNG } from './prng';
-import { TEMPLATE_REGISTRY, type MicroTemplate } from './templates';
+import { type MicroTemplate } from './templates';
 
 export interface LevelGenerationConfig {
   width?: number;
