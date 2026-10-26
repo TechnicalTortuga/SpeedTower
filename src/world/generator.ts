@@ -1,5 +1,5 @@
 import { BlockType, WORLD_CONSTANTS } from './block_types';
-import { VoxelChunk } from './chunk';
+import { VoxelStage } from './stage';
 import { PRNG } from './prng';
 import { type MicroTemplate } from './templates';
 
@@ -13,7 +13,7 @@ export interface LevelGenerationConfig {
  * Helper to stamp a micro-template into a chunk with automatic X wrapping.
  */
 export function stampTemplate(
-  chunk: VoxelChunk,
+  chunk: VoxelStage,
   template: MicroTemplate,
   startX: number,
   startY: number,
@@ -43,7 +43,7 @@ export function stampTemplate(
  * Builds a horizontal platform with automatic X wrapping.
  */
 function buildPlatform(
-  chunk: VoxelChunk,
+  chunk: VoxelStage,
   startX: number,
   y: number,
   length: number,
@@ -58,7 +58,7 @@ function buildPlatform(
  * Builds a vertical pillar, optionally lined with climbable vines.
  */
 function buildVerticalPillar(
-  chunk: VoxelChunk,
+  chunk: VoxelStage,
   x: number,
   startY: number,
   pillarHeight: number,
@@ -84,13 +84,13 @@ function buildVerticalPillar(
 export function generateStage(
   seed: number,
   config: LevelGenerationConfig = {}
-): VoxelChunk {
-  const width = config.width ?? WORLD_CONSTANTS.CHUNK_WIDTH; // 48 blocks
-  const height = config.height ?? WORLD_CONSTANTS.CHUNK_HEIGHT * WORLD_CONSTANTS.CHUNKS_PER_STAGE; // 96 blocks
-  const depth = config.depth ?? WORLD_CONSTANTS.CHUNK_DEPTH;
+): VoxelStage {
+  const width = config.width ?? WORLD_CONSTANTS.STAGE_WIDTH; // 48 blocks
+  const height = config.height ?? WORLD_CONSTANTS.STAGE_HEIGHT; // 96 blocks
+  const depth = config.depth ?? WORLD_CONSTANTS.STAGE_DEPTH;
 
   const prng = new PRNG(seed);
-  const chunk = new VoxelChunk(0, width, height, depth);
+  const chunk = new VoxelStage(0, width, height, depth);
 
   // --------------------------------------------------------------------------
   // 1. BASE FLOOR & STARTING PORTAL
@@ -222,7 +222,7 @@ export function generateStage(
 /**
  * Converts a 3D VoxelChunk into a flattened 2D grid slice at a given Z depth.
  */
-export function chunkTo2DGrid(chunk: VoxelChunk, zDepth: number = 1): BlockType[][] {
+export function chunkTo2DGrid(chunk: VoxelStage, zDepth: number = 1): BlockType[][] {
   const grid: BlockType[][] = [];
   for (let y = 0; y < chunk.height; y++) {
     const row: BlockType[] = [];

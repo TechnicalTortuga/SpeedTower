@@ -4,8 +4,8 @@ import { printLevelPreview, render2DGrid } from '../visualizer';
 
 describe('Level Visualizer Preview Test', () => {
   it('should render and print a readable 2D level preview', () => {
-    const width = WORLD_CONSTANTS.CHUNK_WIDTH;
-    const height = WORLD_CONSTANTS.CHUNK_HEIGHT * 2; // 32 blocks tall (2 stacked chunks)
+    const width = WORLD_CONSTANTS.STAGE_WIDTH;
+    const height = 32; // 32 blocks tall
 
     // Create empty grid filled with AIR
     const grid: BlockType[][] = Array.from({ length: height }, () =>

@@ -11,8 +11,8 @@ export interface EntitySpawn {
  * VoxelChunk: Represents a single vertical 3D slice of the tower.
  * Stores voxel IDs in a flat, contiguous Uint8Array.
  */
-export class VoxelChunk {
-  public readonly chunkY: number;
+export class VoxelStage {
+  public readonly stageY: number;
   public readonly width: number;
   public readonly height: number;
   public readonly depth: number;
@@ -24,12 +24,12 @@ export class VoxelChunk {
   public readonly entities: EntitySpawn[] = [];
 
   constructor(
-    chunkY: number,
-    width: number = WORLD_CONSTANTS.CHUNK_WIDTH,
-    height: number = WORLD_CONSTANTS.CHUNK_HEIGHT,
-    depth: number = WORLD_CONSTANTS.CHUNK_DEPTH
+    stageY: number,
+    width: number = WORLD_CONSTANTS.STAGE_WIDTH,
+    height: number = WORLD_CONSTANTS.STAGE_HEIGHT,
+    depth: number = WORLD_CONSTANTS.STAGE_DEPTH
   ) {
-    this.chunkY = chunkY;
+    this.stageY = stageY;
     this.width = width;
     this.height = height;
     this.depth = depth;

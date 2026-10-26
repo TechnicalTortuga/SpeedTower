@@ -30,9 +30,9 @@ describe('Unit 1: Block Types and World Dimensions', () => {
   });
 
   it('should freeze dimensions according to design constraints', () => {
-    expect(WORLD_CONSTANTS.CHUNK_WIDTH).toBe(48);
-    expect(WORLD_CONSTANTS.CHUNK_HEIGHT).toBe(16);
-    expect(WORLD_CONSTANTS.CHUNK_DEPTH).toBe(4);
+    expect(WORLD_CONSTANTS.STAGE_WIDTH).toBe(48);
+    expect(WORLD_CONSTANTS.STAGE_HEIGHT).toBe(96);
+    expect(WORLD_CONSTANTS.STAGE_DEPTH).toBe(4);
   });
 });
 

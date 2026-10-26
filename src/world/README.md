@@ -37,7 +37,7 @@ The single source of truth for the game's vocabulary.
 * **What it is:** A custom 32-bit Mulberry32 random number generator.
 * **Why it matters:** Standard `Math.random()` cannot be seeded. This guarantees that entering seed `1337` on any computer generates the exact same jumps, hazards, and layout. *(Note: Max seed is 4,294,967,295 due to 32-bit bitwise math).*
 
-### Unit 3: VoxelChunk & 3D Math (`chunk.ts`)
+### Unit 3: VoxelChunk & 3D Math (`stage.ts`)
 
 * **What it is:** The container for the level. It maps 3D coordinates `(X, Y, Z)` to a flat 1D array index: `index = X + Width * (Y + Height * Z)`.
 * **Why it matters:** It handles the **horizontal cylinder wrapping** automatically. If you request a block at `X = 49` (on a 48-wide tower), it safely wraps the query to `X = 1`. It stores data in a flat `Uint8Array`, which is lightning-fast and ready for WebGL/OpenGL buffers.

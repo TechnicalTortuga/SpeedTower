@@ -24,13 +24,11 @@ export enum BlockType {
  */
 export const WORLD_CONSTANTS = {
   /** Width around the tower circumference (in blocks) */
-  CHUNK_WIDTH: 48,
-  /** Height of a single procedural vertical segment (in blocks) */
-  CHUNK_HEIGHT: 16,
+  STAGE_WIDTH: 48,
+  /** Height of the tower (in blocks) */
+  STAGE_HEIGHT: 96,
   /** Radial ledge depth for 3D extrusion (in blocks) */
-  CHUNK_DEPTH: 4,
-  /** Standard stage height: 6 chunks stacked = 96 blocks */
-  CHUNKS_PER_STAGE: 6,
+  STAGE_DEPTH: 4,
 } as const;
 
 /**

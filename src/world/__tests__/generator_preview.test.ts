@@ -16,7 +16,7 @@ describe('Unit 5: Expanded Dynamic Temple Stage Inspection', () => {
   });
 
   it('should generate and print a full 48-wide x 96-high temple tower', () => {
-    const seed = 23482430;
+    const seed = 20481;
     const stage = generateStage(seed, {
       width: 48,
       height: 96,
