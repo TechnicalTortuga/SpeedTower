@@ -65,7 +65,7 @@ import { generateStage } from './src/world/generator';
 
 // Generate a full stage from a seed (e.g., from the pause menu)
 const currentSeed = 12345;
-const stageChunk = generateStage(currentSeed);
+const stage = generateStage(currentSeed);
 
 ```
 
@@ -74,15 +74,15 @@ const stageChunk = generateStage(currentSeed);
 You need the raw buffer to calculate visible faces and push vertices to the GPU.
 
 ```typescript
-const voxelData = stageChunk.voxels; // Raw Uint8Array (length: 48 * 96 * 4)
+const voxelData = stage.voxels; // Raw Uint8Array (length: 48 * 96 * 4)
 
 // You have access to dimensions for your polar coordinate mapping:
-const width = stageChunk.width;   // 48 (Circumference)
-const height = stageChunk.height; // 96 (Vertical climb)
-const depth = stageChunk.depth;   // 4  (Radial depth)
+const width = stage.width;   // 48 (Circumference)
+const height = stage.height; // 96 (Vertical climb)
+const depth = stage.depth;   // 4  (Radial depth)
 
 // Dynamic entities (Chests, Portals) are stored separately so you can attach 3D models to them
-for (const entity of stageChunk.entities) {
+for (const entity of stage.entities) {
   spawn3DModel(entity.type, entity.x, entity.y, entity.z);
 }
 
@@ -97,8 +97,8 @@ import { isSolidBlock, isHazardBlock } from './src/world/block_types';
 
 // The chunk handles the 360-degree wrapping for you!
 // If player is at X = 48, it safely checks X = 0.
-const blockBelow = stageChunk.getVoxel(player.x, player.y - 1, player.z);
-const blockAtHead = stageChunk.getVoxel(player.x, player.y + 1, player.z);
+const blockBelow = stage.getVoxel(player.x, player.y - 1, player.z);
+const blockAtHead = stage.getVoxel(player.x, player.y + 1, player.z);
 
 if (isSolidBlock(blockBelow)) {
   player.canJump = true;
